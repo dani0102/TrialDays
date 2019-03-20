@@ -9,4 +9,8 @@ import ch.ny.person.Person;
 @Table(name = "berufsbildner")
 public class Berufsbildner extends Person {
 
+	public Berufsbildner() {
+		super();
+	}
+	
 }

@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name = "fachrichtung")
 public class Fachrichtung {
 
+	public Fachrichtung() {
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
