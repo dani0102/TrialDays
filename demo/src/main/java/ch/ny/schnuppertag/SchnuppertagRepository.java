@@ -1,9 +1,9 @@
-package ch.ny.schnupperer;
+package ch.ny.schnuppertag;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-interface SchnuppererRepository extends JpaRepository<Schnupperer, Long> {
+public interface SchnuppertagRepository extends JpaRepository<Schnuppertag, Long>{
 
 }

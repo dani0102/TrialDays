@@ -1,4 +1,4 @@
-package ch.ny.schnupperer;
+package ch.ny.schnuppertag;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,28 +7,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SchnuppererService implements SchnuppererServiceable{
+public class SchnuppertagService implements SchnuppertagServiceable {
 
-	private SchnuppererRepository repository;
+	private SchnuppertagRepository repository;
 	
 	@Autowired
-	public SchnuppererService(SchnuppererRepository repository) {
+	public SchnuppertagService(SchnuppertagRepository repository) {
 		this.repository = repository;
 	}
 	
 	@Override
-	public Optional<Schnupperer> getById(Long id) {
+	public Optional<Schnuppertag> getById(Long id) {
 		return this.repository.findById(id);
 	}
 
 	@Override
-	public List<Schnupperer> getAll() {
+	public List<Schnuppertag> getAll() {
 		return repository.findAll();
 	}
 
 	@Override
-	public void createSchnupperer(Schnupperer berufsbildner) {
+	public void createSchnuppertag(Schnuppertag berufsbildner) {
 		repository.save(berufsbildner);
 	}
-	
+
 }
