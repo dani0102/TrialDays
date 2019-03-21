@@ -24,7 +24,7 @@ public class FachrichtungController {
 	
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<Fachrichtung>> getAll() {
-		var toReturn = this.service.getAll();
+		Iterable<Fachrichtung> toReturn = service.getAll();
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
@@ -34,15 +34,17 @@ public class FachrichtungController {
 		var toReturn = this.service.getById(id);
 		
 		if(toReturn.isPresent()) {
+			System.out.println("found");
 			return new ResponseEntity<Fachrichtung>(toReturn.get(), HttpStatus.OK);
 		} else {
+			System.out.println("not found");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createFachrichtung(@RequestBody Fachrichtung valueToAdd){
-		this.service.createFachrichtung(valueToAdd);
+		service.createFachrichtung(valueToAdd);
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

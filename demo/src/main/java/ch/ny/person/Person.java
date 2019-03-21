@@ -1,4 +1,4 @@
-package ch.ny.person;
+/*package ch.ny.person;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -25,6 +25,7 @@ public class Person {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private long id;
 	
 	@Column
@@ -57,4 +58,4 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
-}
+}*/

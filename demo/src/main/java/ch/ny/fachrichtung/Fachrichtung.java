@@ -11,12 +11,13 @@ import javax.persistence.Table;
 @Table(name = "fachrichtung")
 public class Fachrichtung {
 
-	public Fachrichtung() { }
-	
+	public Fachrichtung() {
+	}
+
 	public Fachrichtung(String name) {
 		this.name = name;
 	}
-	
+
 	public Fachrichtung(long id, String name) {
 		this.id = id;
 		this.name = name;
@@ -24,8 +25,9 @@ public class Fachrichtung {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private long id;
-	
+
 	@Column
 	private String name;
 
@@ -44,5 +46,5 @@ public class Fachrichtung {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }

@@ -45,6 +45,7 @@ public class Schnuppertag {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private long id;
 
 	@Column
@@ -54,7 +55,7 @@ public class Schnuppertag {
 	@JoinColumn(name = "ort_id")
 	private Ort ort;
 
-	@Column
+	@Column(name = "limits")
 	private int limit;
 
 	@OneToMany

@@ -18,7 +18,7 @@ public class FachrichtungService implements FachrichtungServiceable {
 
 	@Override
 	public Optional<Fachrichtung> getById(Long id) {
-		return this.repository.findById(id);
+		return repository.findById(id);
 	}
 
 	@Override
