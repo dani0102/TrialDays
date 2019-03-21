@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "ort")
 public class Ort {
-
+	
 	public Ort() { }
 
 	public Ort(String pLZ, String street, int number, String city, String region) {

@@ -13,33 +13,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import ch.ny.schnupperer.Schnupperer;
+import ch.ny.schnupperer.SchnuppererServiceable;
+
 @RestController
 @RequestMapping("/schnuppertag")
 public class SchnuppertagController {
 
 	private SchnuppertagServiceable service;
+	private SchnuppertagMapper mapper;
 	
 	@Autowired
-	public SchnuppertagController(SchnuppertagServiceable service) {
+	public SchnuppertagController(SchnuppertagServiceable service, SchnuppertagMapper mapper) {
 		this.service = service;
+		this.mapper = mapper;
 	}
 	
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<Schnuppertag>> getAll() {
-		var toReturn = this.service.getAll();
+	public @ResponseBody ResponseEntity<Iterable<SchnuppertagDTO>> getAll() {
+		var result = this.service.getAll();
+		var toReturn = this.mapper.toListDTO(result);
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public @ResponseBody ResponseEntity<Schnuppertag> getById(@PathVariable long id) {
-		var toReturn = this.service.getById(id);
+	public @ResponseBody ResponseEntity<SchnuppertagDTO> getById(@PathVariable long id) {
+		var result = this.service.getById(id);
+		var toReturn = mapper.toDTO(result.get());
 		
-		if(toReturn.isPresent()) {
-			return new ResponseEntity<Schnuppertag>(toReturn.get(), HttpStatus.OK);
+		if(result.isPresent()) {
+			return new ResponseEntity<>(toReturn, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	// By posting the schnupperer_id to this endpoint
+	// you can add the shcnupperer to the participants array
+	@PostMapping("/{schnuppertagId}")
+	public ResponseEntity<?> assignSchnuppererToSchnuppertag(@PathVariable long schnuppertagId, @RequestBody Schnupperer schnupperer){
+		this.service.addSchnupperer(schnupperer.getId(), schnuppertagId);
+		
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@PostMapping({"", "/"})

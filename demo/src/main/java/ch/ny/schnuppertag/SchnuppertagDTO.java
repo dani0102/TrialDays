@@ -4,15 +4,27 @@ import java.sql.Date;
 import java.util.Set;
 
 import ch.ny.berufsbildner.Berufsbildner;
+import ch.ny.berufsbildner.BerufsbildnerDTO;
 import ch.ny.fachrichtung.Fachrichtung;
+import ch.ny.fachrichtung.FachrichtungDTO;
 import ch.ny.ort.Ort;
+import ch.ny.ort.OrtDTO;
 import ch.ny.schnupperer.Schnupperer;
+import ch.ny.schnupperer.SchnuppererDTO;
 
 public class SchnuppertagDTO {
 
 	private Date date;
 	
-	private Ort ort;
+	private OrtDTO ort;
+
+	private int limit;
+	
+	private Set<SchnuppererDTO> participants;
+	
+	private BerufsbildnerDTO director;
+	
+	private FachrichtungDTO fachrichtung;
 	
 	public Date getDate() {
 		return date;
@@ -22,11 +34,11 @@ public class SchnuppertagDTO {
 		this.date = date;
 	}
 
-	public Ort getOrt() {
+	public OrtDTO getOrt() {
 		return ort;
 	}
 
-	public void setOrt(Ort ort) {
+	public void setOrt(OrtDTO ort) {
 		this.ort = ort;
 	}
 
@@ -38,36 +50,27 @@ public class SchnuppertagDTO {
 		this.limit = limit;
 	}
 
-	public Set<Schnupperer> getParticipants() {
+	public Set<SchnuppererDTO> getParticipants() {
 		return participants;
 	}
 
-	public void setParticipants(Set<Schnupperer> participants) {
+	public void setParticipants(Set<SchnuppererDTO> participants) {
 		this.participants = participants;
 	}
 
-	public Berufsbildner getDirector() {
+	public BerufsbildnerDTO getDirector() {
 		return director;
 	}
 
-	public void setDirector(Berufsbildner director) {
+	public void setDirector(BerufsbildnerDTO director) {
 		this.director = director;
 	}
 
-	public Fachrichtung getFachrichtung() {
+	public FachrichtungDTO getFachrichtung() {
 		return fachrichtung;
 	}
 
-	public void setFachrichtung(Fachrichtung fachrichtung) {
+	public void setFachrichtung(FachrichtungDTO fachrichtung) {
 		this.fachrichtung = fachrichtung;
 	}
-
-	private int limit;
-	
-	private Set<Schnupperer> participants;
-	
-	private Berufsbildner director;
-	
-	private Fachrichtung fachrichtung;
-	
 }

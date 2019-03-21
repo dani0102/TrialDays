@@ -115,6 +115,10 @@ public class Schnuppertag {
 	public void setParticipants(Set<Schnupperer> participants) {
 		this.participants = participants;
 	}
+	
+	public void addParticipant(Schnupperer schnupperer) {
+		this.participants.add(schnupperer);
+	}
 
 	public Berufsbildner getDirector() {
 		return director;
