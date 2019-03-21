@@ -1,4 +1,4 @@
-/*package ch.ny.person;
+package ch.ny.person;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -58,4 +58,4 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
-}*/
+}

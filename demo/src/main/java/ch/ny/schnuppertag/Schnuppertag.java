@@ -59,7 +59,7 @@ public class Schnuppertag {
 	private int limit;
 
 	@OneToMany
-	@JoinColumn(name = "schnupperer_id")
+	@JoinColumn(name = "schnupperertag_id")
 	private Set<Schnupperer> participants;
 
 	@ManyToOne

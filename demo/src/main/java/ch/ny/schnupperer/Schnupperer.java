@@ -10,43 +10,29 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import ch.ny.ort.Ort;
+import ch.ny.person.Person;
 
 @Entity
 @Table(name = "schnupperer")
-public class Schnupperer {
+public class Schnupperer extends Person {
 
 	public Schnupperer() {
 		super();
 	}
 
 	public Schnupperer(long id, String firstName, String lastName, String email, String telephone, Ort ort) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		super(id, firstName, lastName);
 		this.email = email;
 		this.telephone = telephone;
 		this.ort = ort;
 	}
 
 	public Schnupperer(String firstName, String lastName, String email, String telephone, Ort ort) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		super(firstName, lastName);
 		this.email = email;
 		this.telephone = telephone;
 		this.ort = ort;
 	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private long id;
-
-	@Column
-	private String firstName;
-
-	@Column
-	private String lastName;
 
 	@Column
 	private String email;
@@ -80,30 +66,6 @@ public class Schnupperer {
 
 	public void setOrt(Ort ort) {
 		this.ort = ort;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 }
