@@ -1,5 +1,7 @@
 package ch.ny.ort;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,32 +18,36 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrtController {
 
 	private OrtServiceable service;
+	private OrtMapper mapper;
 	
 	@Autowired
-	public OrtController(OrtServiceable service) {
+	public OrtController(OrtServiceable service, OrtMapper mapper) {
 		this.service = service;
+		this.mapper = mapper;
 	}
 	
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<Ort>> getAll() {
-		var toReturn = this.service.getAll();
+	public @ResponseBody ResponseEntity<Iterable<OrtDTO>> getAll() {
+		var result = this.service.getAll();
+		var toReturn = mapper.toListDTO(result);
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
 	@GetMapping({"/{id}"})
-	public @ResponseBody ResponseEntity<Ort> getById(@PathVariable long id){
-		var toReturn = this.service.getById(id);
+	public @ResponseBody ResponseEntity<OrtDTO> getById(@PathVariable long id){
+		var result = this.service.getById(id);
+		var toReturn = mapper.toDTO(result.get());
 		
-		if(toReturn.isPresent()) {
-			return new ResponseEntity<Ort>(toReturn.get(), HttpStatus.OK);
+		if(result.isPresent()) {
+			return new ResponseEntity<>(toReturn, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	@PostMapping({"", "/"})
-	public ResponseEntity<?> createOrt(@RequestBody Ort valueToAdd){
+	public ResponseEntity<?> createOrt(@RequestBody @Valid Ort valueToAdd){
 		this.service.createOrt(valueToAdd);
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);

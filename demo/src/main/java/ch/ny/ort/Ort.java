@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ort")
@@ -35,18 +37,23 @@ public class Ort {
 	private long id;
 	
 	@Column
+	@NotBlank
 	private String PLZ;
 	
 	@Column
+	@NotBlank
 	private String street;
 	
 	@Column
+	@NotNull
 	private int number;
 	
 	@Column
+	@NotBlank
 	private String city;
 	
 	@Column
+	@NotNull
 	private String region;
 
 	public long getId() {

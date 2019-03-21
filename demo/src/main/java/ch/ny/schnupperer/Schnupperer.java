@@ -2,12 +2,11 @@ package ch.ny.schnupperer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import ch.ny.ort.Ort;
 import ch.ny.person.Person;
@@ -35,13 +34,16 @@ public class Schnupperer extends Person {
 	}
 
 	@Column
+	@NotBlank
 	private String email;
 
 	@Column
+	@NotBlank
 	private String telephone;
 
 	@ManyToOne
 	@JoinColumn(name = "ort_id")
+	@NotNull
 	private Ort ort;
 
 	public String getEmail() {

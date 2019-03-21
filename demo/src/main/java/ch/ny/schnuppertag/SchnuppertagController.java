@@ -1,5 +1,7 @@
 package ch.ny.schnuppertag;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +43,7 @@ public class SchnuppertagController {
 	}
 	
 	@PostMapping({"", "/"})
-	public ResponseEntity<?> createSchnuppertag(@RequestBody Schnuppertag valueToAdd) {
+	public ResponseEntity<?> createSchnuppertag(@RequestBody @Valid Schnuppertag valueToAdd) {
 		this.service.createSchnuppertag(valueToAdd);
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);

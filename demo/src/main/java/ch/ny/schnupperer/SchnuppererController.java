@@ -1,5 +1,7 @@
 package ch.ny.schnupperer;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +43,7 @@ public class SchnuppererController {
 	}
 	
 	@PostMapping({"", "/"})
-	public ResponseEntity<?> createBerufsbildner(@RequestBody Schnupperer valueToAdd) {
+	public ResponseEntity<?> createBerufsbildner(@RequestBody @Valid Schnupperer valueToAdd) {
 		this.service.createSchnupperer(valueToAdd);
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);

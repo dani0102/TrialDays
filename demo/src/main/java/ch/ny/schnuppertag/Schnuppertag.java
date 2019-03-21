@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import ch.ny.berufsbildner.Berufsbildner;
 import ch.ny.fachrichtung.Fachrichtung;
@@ -49,13 +50,16 @@ public class Schnuppertag {
 	private long id;
 
 	@Column
+	@NotNull
 	private Date date;
 
 	@ManyToOne
 	@JoinColumn(name = "ort_id")
+	@NotNull
 	private Ort ort;
 
 	@Column(name = "limits")
+	@NotNull
 	private int limit;
 
 	@OneToMany
@@ -64,10 +68,12 @@ public class Schnuppertag {
 
 	@ManyToOne
 	@JoinColumn(name = "berufsbildner_id")
+	@NotNull
 	private Berufsbildner director;
 
 	@ManyToOne
 	@JoinColumn(name = "fachrichtung_id")
+	@NotNull
 	private Fachrichtung fachrichtung;
 
 	public long getId() {
