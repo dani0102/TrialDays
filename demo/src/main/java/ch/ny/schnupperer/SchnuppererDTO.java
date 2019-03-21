@@ -1,5 +1,7 @@
 package ch.ny.schnupperer;
 
+import java.util.UUID;
+
 import ch.ny.ort.Ort;
 
 public class SchnuppererDTO {
@@ -7,6 +9,8 @@ public class SchnuppererDTO {
 	private String firstName;
 	
 	private String lastName;
+
+	private UUID uid;
 	
 	private String email;
 	
@@ -52,6 +56,14 @@ public class SchnuppererDTO {
 
 	public void setOrt(Ort ort) {
 		this.ort = ort;
+	}
+
+	public UUID getUid() {
+		return uid;
+	}
+
+	public void setUid(UUID uid) {
+		this.uid = uid;
 	}
 	
 }

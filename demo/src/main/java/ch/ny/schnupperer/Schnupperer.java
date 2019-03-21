@@ -8,6 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.type.PostgresUUIDType;
+
 import ch.ny.ort.Ort;
 import ch.ny.person.Person;
 
@@ -33,6 +35,9 @@ public class Schnupperer extends Person {
 		this.ort = ort;
 	}
 
+	@Column
+	private PostgresUUIDType uuid;
+	
 	@Column
 	@NotBlank
 	private String email;
@@ -68,6 +73,14 @@ public class Schnupperer extends Person {
 
 	public void setOrt(Ort ort) {
 		this.ort = ort;
+	}
+
+	public PostgresUUIDType getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(PostgresUUIDType uuid) {
+		this.uuid = uuid;
 	}
 
 }

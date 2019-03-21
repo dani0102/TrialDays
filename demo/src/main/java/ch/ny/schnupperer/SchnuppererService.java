@@ -27,8 +27,8 @@ public class SchnuppererService implements SchnuppererServiceable{
 	}
 
 	@Override
-	public void createSchnupperer(Schnupperer berufsbildner) {
-		repository.save(berufsbildner);
+	public void createSchnupperer(Schnupperer schnupperer) {
+		repository.save(schnupperer);
 	}
 	
 }
