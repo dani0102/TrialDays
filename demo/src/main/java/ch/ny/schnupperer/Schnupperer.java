@@ -1,6 +1,9 @@
 package ch.ny.schnupperer;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -36,7 +39,7 @@ public class Schnupperer extends Person {
 	}
 
 	@Column
-	private PostgresUUIDType uuid;
+	private UUID uuid;
 	
 	@Column
 	@NotBlank
@@ -75,11 +78,11 @@ public class Schnupperer extends Person {
 		this.ort = ort;
 	}
 
-	public PostgresUUIDType getUuid() {
+	public UUID getUuid() {
 		return uuid;
 	}
 
-	public void setUuid(PostgresUUIDType uuid) {
+	public void setUuid(UUID uuid) {
 		this.uuid = uuid;
 	}
 

@@ -2,6 +2,7 @@ package ch.ny.schnupperer;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class SchnuppererService implements SchnuppererServiceable{
 
 	@Override
 	public void createSchnupperer(Schnupperer schnupperer) {
+		// Create schnupperer's UUID
+		schnupperer.setUuid(UUID.randomUUID());
+		
 		repository.save(schnupperer);
 	}
 	

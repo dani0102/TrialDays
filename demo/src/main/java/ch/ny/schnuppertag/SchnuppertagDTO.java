@@ -2,19 +2,18 @@ package ch.ny.schnuppertag;
 
 import java.sql.Date;
 import java.util.Set;
+import java.util.UUID;
 
-import ch.ny.berufsbildner.Berufsbildner;
 import ch.ny.berufsbildner.BerufsbildnerDTO;
-import ch.ny.fachrichtung.Fachrichtung;
 import ch.ny.fachrichtung.FachrichtungDTO;
-import ch.ny.ort.Ort;
 import ch.ny.ort.OrtDTO;
-import ch.ny.schnupperer.Schnupperer;
 import ch.ny.schnupperer.SchnuppererDTO;
 
 public class SchnuppertagDTO {
 
 	private Date date;
+	
+	private UUID uid;
 	
 	private OrtDTO ort;
 
@@ -72,5 +71,13 @@ public class SchnuppertagDTO {
 
 	public void setFachrichtung(FachrichtungDTO fachrichtung) {
 		this.fachrichtung = fachrichtung;
+	}
+
+	public UUID getUid() {
+		return uid;
+	}
+
+	public void setUid(UUID uid) {
+		this.uid = uid;
 	}
 }
