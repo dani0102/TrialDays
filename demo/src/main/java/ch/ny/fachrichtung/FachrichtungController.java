@@ -1,5 +1,7 @@
 package ch.ny.fachrichtung;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,8 +47,9 @@ public class FachrichtungController {
 	}
 	
 	@PostMapping({"", "/"})
-	public ResponseEntity<?> createFachrichtung(@RequestBody Fachrichtung valueToAdd){
-		service.createFachrichtung(valueToAdd);
+	public ResponseEntity<?> createFachrichtung(@RequestBody @Valid FachrichtungDTO valueToAdd){
+		var toCreate = mapper.toEntity(valueToAdd);
+		service.createFachrichtung(toCreate);
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
