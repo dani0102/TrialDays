@@ -1,2 +1,5 @@
 /.gradle/
 
+# ignore properties that are based on the developper's system
+application.properties
+demo/src/main/resources/
