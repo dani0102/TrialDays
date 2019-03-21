@@ -16,28 +16,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class FachrichtungController {
 
 	private FachrichtungServiceable service;
+	private FachrichtungMapper mapper;
 	
 	@Autowired
-	public FachrichtungController(FachrichtungServiceable service) {
+	public FachrichtungController(FachrichtungServiceable service, FachrichtungMapper mapper) {
 		this.service = service;
+		this.mapper = mapper;
 	}
 	
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<Fachrichtung>> getAll() {
-		Iterable<Fachrichtung> toReturn = service.getAll();
+	public @ResponseBody ResponseEntity<Iterable<FachrichtungDTO>> getAll() {
+		var result = service.getAll();
+		var toReturn = mapper.toListDTO(result);
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
 	@GetMapping({"/{id}"})
-	public @ResponseBody ResponseEntity<Fachrichtung> getById(@PathVariable long id){
-		var toReturn = this.service.getById(id);
+	public @ResponseBody ResponseEntity<FachrichtungDTO> getById(@PathVariable long id){
+		var result = this.service.getById(id);
+		var toReturn = mapper.toDTO(result.get());
 		
-		if(toReturn.isPresent()) {
-			System.out.println("found");
-			return new ResponseEntity<Fachrichtung>(toReturn.get(), HttpStatus.OK);
+		if(result.isPresent()) {
+			return new ResponseEntity<>(toReturn, HttpStatus.OK);
 		} else {
-			System.out.println("not found");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
