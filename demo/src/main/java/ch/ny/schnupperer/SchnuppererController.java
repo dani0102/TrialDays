@@ -18,25 +18,29 @@ import org.springframework.web.bind.annotation.RestController;
 public class SchnuppererController {
 
 	private SchnuppererServiceable service;
+	private SchnuppererMapper mapper;
 	
 	@Autowired
-	public SchnuppererController(SchnuppererServiceable service) {
+	public SchnuppererController(SchnuppererServiceable service, SchnuppererMapper mapper) {
 		this.service = service;
+		this.mapper = mapper; 
 	}
 	
 	@GetMapping({"", "/"})
-	public @ResponseBody ResponseEntity<Iterable<Schnupperer>> getAll() {
-		var toReturn = this.service.getAll();
+	public @ResponseBody ResponseEntity<Iterable<SchnuppererDTO>> getAll() {
+		var result = this.service.getAll();
+		var toReturn = mapper.toListDTO(result);
 		
 		return new ResponseEntity<>(toReturn, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public @ResponseBody ResponseEntity<Schnupperer> getById(@PathVariable long id) {
-		var toReturn = this.service.getById(id);
+	public @ResponseBody ResponseEntity<SchnuppererDTO> getById(@PathVariable long id) {
+		var result = this.service.getById(id);
+		var toReturn = mapper.toDTO(result.get());
 		
-		if(toReturn.isPresent()) {
-			return new ResponseEntity<Schnupperer>(toReturn.get(), HttpStatus.OK);
+		if(result.isPresent()) {
+			return new ResponseEntity<>(toReturn, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
