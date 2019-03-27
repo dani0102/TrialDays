@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+//subcollection of controller
+//automatically has @Component @Responsebody
 @RestController
 @RequestMapping("/berufsbildner")
 public class BerufsbildnerController {
@@ -20,12 +22,14 @@ public class BerufsbildnerController {
 	private BerufsbildnerServiceable service;
 	private BerufsbildnerMapper mapper;
 	
+	//automatisch die Objekte die man braucht instanzieren -> sorgt für dependency injection
 	@Autowired
 	public BerufsbildnerController(BerufsbildnerServiceable service, BerufsbildnerMapper mapper) {
 		this.service = service;
 		this.mapper = mapper;
 	}
 	
+	//endpoint für HTTP request get
 	@GetMapping({"", "/"})
 	public @ResponseBody ResponseEntity<Iterable<BerufsbildnerDTO>> getAll() {
 		var result = this.service.getAll();
@@ -46,6 +50,7 @@ public class BerufsbildnerController {
 		}
 	}
 	
+	//@RequestBody 
 	@PostMapping({"", "/"})
 	public ResponseEntity<?> createBerufsbildner(@RequestBody @Valid Berufsbildner valueToAdd) {
 		System.out.println(valueToAdd.getFirstName());

@@ -1,5 +1,8 @@
 package ch.ny.berufsbildner;
 
+//abgespeckte verison von entität
+//ohne business logic, nur die daten die man braucht
+
 public class BerufsbildnerDTO {
 
 	private String firstName;
