@@ -21,11 +21,11 @@ public class DataGenerators {
 		} else if(Schnupperer.class.isAssignableFrom(clazz)) {
 			gen = schnuppererGen();
 		} else if(Schnuppertag.class.isAssignableFrom(clazz)) {
-			//gen = schnuppertagGen();
+			gen = schnuppertagGen();
 		} else if(Ort.class.isAssignableFrom(clazz)) {
 			gen = ortGen();
 		} else if(Berufsbildner.class.isAssignableFrom(clazz)) {
-			//gen = berufsbildnerGen();
+			gen = berufsbildnerGen();
 		} else {
 			throw new RuntimeException();
 		}
@@ -43,5 +43,13 @@ public class DataGenerators {
 	
 	private SchnuppererDataGenerator schnuppererGen() {
 		return new SchnuppererDataGenerator(ortGen());
+	}
+	
+	private BerufsbildnerDataGenerator berufsbildnerGen() {
+		return new BerufsbildnerDataGenerator();
+	}
+	
+	private SchnuppertagDataGenerator schnuppertagGen() {
+		return new SchnuppertagDataGenerator(ortGen(),  schnuppererGen(), berufsbildnerGen(), fachrichtungGen());
 	}
 }
