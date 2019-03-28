@@ -1,4 +1,4 @@
-package ch.ny.demo.person;
+package ch.ny.demo.schnupperer;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -43,7 +43,7 @@ public class SchnuppererServiceTest {
 	}
 	
 	@Test
-	public void findById_idDoesNotExist_returnsSchnupperer() {
+	public void findById_idDoesNotExist_returnsNothing() {
 		assertThat(schnuppererService.getById(223L))
 				.isEmpty();
 	}

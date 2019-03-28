@@ -1,4 +1,9 @@
-package ch.ny.demo.person;
+package ch.ny.demo.ort;
+
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,55 +20,50 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.schnupperer.Schnupperer;
-import ch.ny.schnupperer.SchnuppererController;
-import ch.ny.schnupperer.SchnuppererMapper;
-import ch.ny.schnupperer.SchnuppererService;
-
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import ch.ny.ort.Ort;
+import ch.ny.ort.OrtController;
+import ch.ny.ort.OrtMapper;
+import ch.ny.ort.OrtService;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = SchnuppererController.class, includeFilters = {
-		@Filter(classes = {SchnuppererMapper.class},
+@WebMvcTest(controllers = OrtController.class, includeFilters = {
+		@Filter(classes = {OrtMapper.class},
 				type = FilterType.ASSIGNABLE_TYPE)
 })
-public class SchnuppererControllerTest {
+public class OrtControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private SchnuppererService schnuppererService;
+	private OrtService ortService;
 	
 	@Autowired
 	private ObjectMapper objectMapper;
 	
 	@Autowired
-	private SchnuppererMapper schnuppererMapper;
+	private OrtMapper ortMapper;
 	
-	private DataHolder<Schnupperer> dataHolder;
+	private DataHolder<Ort> dataHolder;
 	
 	@Before
 	public void setup() {
-		this.dataHolder = DataGenerators.forClass(Schnupperer.class).generate();
+		this.dataHolder = DataGenerators.forClass(Ort.class).generate();
 	}
 	
 	@Test
 	public void test() throws Exception {
-		when(schnuppererService.getAll()).thenReturn(dataHolder.asList());
+		when(ortService.getAll()).thenReturn(dataHolder.asList());
 		
 		var expectedJson = objectMapper.writeValueAsString(
-				schnuppererMapper.toListDTO(dataHolder.asList())
+				ortMapper.toListDTO(dataHolder.asList())
 		);
 		
 		
 		
-		mockMvc.perform(get("/schnupperer"))
+		mockMvc.perform(get("/ort"))
 				.andExpect(status().isOk())
 				.andExpect(content().json(expectedJson));
 	}
-
+	
 }
