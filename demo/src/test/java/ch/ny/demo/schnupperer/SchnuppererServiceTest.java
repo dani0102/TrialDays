@@ -1,7 +1,7 @@
 package ch.ny.demo.schnupperer;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
@@ -14,10 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.person.Person;
-import ch.ny.schnupperer.Schnupperer;
-import ch.ny.schnupperer.SchnuppererRepository;
-import ch.ny.schnupperer.SchnuppererService;
+import ch.ny.demo.person.Person;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SchnuppererServiceTest {
@@ -40,6 +37,10 @@ public class SchnuppererServiceTest {
 		var schnupperer = dataHolder.first();
 		when(schnuppererRepository.findById(((Person) schnupperer).getId()))
 				.thenReturn(Optional.of(schnupperer));
+		
+		assertThat(schnuppererService.getById(schnupperer.getId()))
+			.isPresent()
+			.contains(schnupperer);
 	}
 	
 	@Test

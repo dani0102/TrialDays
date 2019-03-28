@@ -1,5 +1,10 @@
 package ch.ny.demo.schnupperer;
 
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,15 +20,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.schnupperer.Schnupperer;
-import ch.ny.schnupperer.SchnuppererController;
-import ch.ny.schnupperer.SchnuppererMapper;
-import ch.ny.schnupperer.SchnuppererService;
-
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = SchnuppererController.class, includeFilters = {

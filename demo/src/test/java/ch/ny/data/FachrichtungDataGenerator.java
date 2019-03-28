@@ -1,6 +1,6 @@
 package ch.ny.data;
 
-import ch.ny.fachrichtung.Fachrichtung;
+import ch.ny.demo.fachrichtung.Fachrichtung;
 
 public class FachrichtungDataGenerator implements DataGeneratable<Fachrichtung>{
 

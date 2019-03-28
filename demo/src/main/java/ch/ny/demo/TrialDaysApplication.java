@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@SpringBootApplication(scanBasePackages = {"ch.ny"})
-@EnableJpaRepositories("ch.ny")
-@EntityScan("ch.ny")
+@SpringBootApplication()
+//@EnableJpaRepositories()
+//@EntityScan()
 public class TrialDaysApplication {
 
 	public static void main(String[] args) {

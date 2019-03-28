@@ -35,6 +35,8 @@ dependencies {
 	//Mapstruct
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 	
 	//Swagger
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
@@ -43,4 +45,7 @@ dependencies {
 	
 	// PostgreSQL
 	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+	
+	// H2 in memory database
+	testCompile "com.h2database:h2:1.4.194"
 }

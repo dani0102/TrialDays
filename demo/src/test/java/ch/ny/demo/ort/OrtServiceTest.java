@@ -14,9 +14,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.ort.Ort;
-import ch.ny.ort.OrtService;
-import ch.ny.ort.OrtRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OrtServiceTest {
@@ -39,6 +36,10 @@ public class OrtServiceTest {
 		var ort = dataHolder.first();
 		when(ortRepository.findById((ort).getId()))
 				.thenReturn(Optional.of(ort));
+		
+		assertThat(ortService.getById(ort.getId()))
+			.isPresent()
+			.contains(ort);
 	}
 	
 	@Test

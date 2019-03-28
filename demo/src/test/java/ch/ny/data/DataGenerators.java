@@ -1,10 +1,10 @@
 package ch.ny.data;
 
-import ch.ny.berufsbildner.Berufsbildner;
-import ch.ny.fachrichtung.Fachrichtung;
-import ch.ny.ort.Ort;
-import ch.ny.schnupperer.Schnupperer;
-import ch.ny.schnuppertag.Schnuppertag;
+import ch.ny.demo.berufsbildner.Berufsbildner;
+import ch.ny.demo.fachrichtung.Fachrichtung;
+import ch.ny.demo.ort.Ort;
+import ch.ny.demo.schnupperer.Schnupperer;
+import ch.ny.demo.schnuppertag.Schnuppertag;
 
 public class DataGenerators {
 	

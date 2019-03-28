@@ -3,8 +3,8 @@ package ch.ny.data;
 import java.util.Date;
 import java.util.HashSet;
 
-import ch.ny.schnupperer.Schnupperer;
-import ch.ny.schnuppertag.Schnuppertag;
+import ch.ny.demo.schnupperer.Schnupperer;
+import ch.ny.demo.schnuppertag.Schnuppertag;
 
 public class SchnuppertagDataGenerator implements DataGeneratable<Schnuppertag>{
 
