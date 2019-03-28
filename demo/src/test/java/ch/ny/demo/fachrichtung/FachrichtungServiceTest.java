@@ -1,4 +1,4 @@
-package ch.ny.demo.fachrichtung;
+/*package ch.ny.demo.fachrichtung;
 
 import java.util.Optional;
 
@@ -42,4 +42,4 @@ public class FachrichtungServiceTest {
 		
 	}
 	
-}
+}*/
