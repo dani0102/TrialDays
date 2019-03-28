@@ -1,6 +1,6 @@
 package ch.ny.schnuppertag;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -34,12 +34,12 @@ public class Schnuppertag {
 		this.fachrichtung = fachrichtung;
 	}
 	
-	public Schnuppertag(long id, Date date, Ort ort, int limit, Set<Schnupperer> participants, Berufsbildner director, Fachrichtung fachrichtung) {
+	public Schnuppertag(long id, java.util.Date date2, Ort ort, int limit, Set<Schnupperer> set, Berufsbildner director, Fachrichtung fachrichtung) {
 		this.id = id;
-		this.date = date;
+		this.date = date2;
 		this.ort = ort;
 		this.limit = limit;
-		this.participants = participants;
+		this.participants = set;
 		this.director = director;
 		this.fachrichtung = fachrichtung;
 	}
