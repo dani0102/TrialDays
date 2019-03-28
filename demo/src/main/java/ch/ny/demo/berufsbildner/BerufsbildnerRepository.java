@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 //@JpaRepository data access object
 
 @Repository
-interface BerufsbildnerRepository extends JpaRepository<Berufsbildner, Long> {
+public interface BerufsbildnerRepository extends JpaRepository<Berufsbildner, Long> {
 	
 }
