@@ -1,4 +1,4 @@
-package schnupperer;
+package ch.ny.demo.person;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +13,17 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ch.ny.data.DataGenerators;
+import ch.ny.data.DataHolder;
 import ch.ny.schnupperer.Schnupperer;
 import ch.ny.schnupperer.SchnuppererController;
 import ch.ny.schnupperer.SchnuppererMapper;
 import ch.ny.schnupperer.SchnuppererService;
+
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = SchnuppererController.class, includeFilters = {
@@ -49,8 +56,10 @@ public class SchnuppererControllerTest {
 		when(schnuppererService.getAll()).thenReturn(dataHolder.asList());
 		
 		var expectedJson = objectMapper.writeValueAsString(
-				schnuppererMapper.toDTO(dataHolder.asList())
+				schnuppererMapper.toListDTO(dataHolder.asList())
 		);
+		
+		
 		
 		mockMvc.perform(get("/schnupperer"))
 				.andExpect(status().isOk())

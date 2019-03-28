@@ -1,4 +1,7 @@
-package schnupperer;
+package ch.ny.demo.person;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 
@@ -9,6 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import ch.ny.data.DataGenerators;
+import ch.ny.data.DataHolder;
 import ch.ny.person.Person;
 import ch.ny.schnupperer.Schnupperer;
 import ch.ny.schnupperer.SchnuppererRepository;
@@ -21,7 +26,7 @@ public class SchnuppererServiceTest {
 	private SchnuppererService schnuppererService;
 	
 	@Mock
-	private SchnuppererRepository schnuppererrespository;
+	private SchnuppererRepository schnuppererRepository;
 	
 	private DataHolder<Schnupperer> dataHolder;
 	

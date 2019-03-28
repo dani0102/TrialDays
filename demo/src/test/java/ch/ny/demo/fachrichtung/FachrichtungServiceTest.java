@@ -14,6 +14,8 @@ import ch.ny.fachrichtung.FachrichtungService;
 import ch.ny.data.DataHolder;
 import ch.ny.fachrichtung.Fachrichtung;
 
+import static org.mockito.Mockito.*;
+
 @RunWith(MockitoJUnitRunner.class)
 public class FachrichtungServiceTest {
 
