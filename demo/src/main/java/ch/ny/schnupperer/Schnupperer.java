@@ -51,7 +51,7 @@ public class Schnupperer extends Person {
 
 	@ManyToOne
 	@JoinColumn(name = "ort_id")
-	@NotNull
+	//@NotNull
 	private Ort ort;
 
 	public String getEmail() {
