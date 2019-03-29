@@ -14,9 +14,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.schnuppertag.Schnuppertag;
-import ch.ny.schnuppertag.SchnuppertagRepository;
-import ch.ny.schnuppertag.SchnuppertagService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SchnuppertagServiceTest {

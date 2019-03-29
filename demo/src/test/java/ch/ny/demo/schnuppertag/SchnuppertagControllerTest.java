@@ -20,10 +20,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.schnuppertag.Schnuppertag;
-import ch.ny.schnuppertag.SchnuppertagController;
-import ch.ny.schnuppertag.SchnuppertagMapper;
-import ch.ny.schnuppertag.SchnuppertagService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = SchnuppertagController.class, includeFilters = {

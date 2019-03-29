@@ -18,10 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.ny.berufsbildner.Berufsbildner;
-import ch.ny.berufsbildner.BerufsbildnerController;
-import ch.ny.berufsbildner.BerufsbildnerMapper;
-import ch.ny.berufsbildner.BerufsbildnerService;
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
 

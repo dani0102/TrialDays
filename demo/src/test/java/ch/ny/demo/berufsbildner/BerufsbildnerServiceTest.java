@@ -12,12 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import ch.ny.berufsbildner.Berufsbildner;
-import ch.ny.berufsbildner.BerufsbildnerRepository;
-import ch.ny.berufsbildner.BerufsbildnerService;
 import ch.ny.data.DataGenerators;
 import ch.ny.data.DataHolder;
-import ch.ny.person.Person;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BerufsbildnerServiceTest {
@@ -38,7 +34,7 @@ public class BerufsbildnerServiceTest {
 	@Test
 	public void findById_idExists_returnsBerufsbildner() {
 		var berufsbildner = dataHolder.first();
-		when(berufsbildnerRepository.findById(((Person) berufsbildner).getId()))
+		when(berufsbildnerRepository.findById(((Berufsbildner) berufsbildner).getId()))
 				.thenReturn(Optional.of(berufsbildner));
 	}
 	

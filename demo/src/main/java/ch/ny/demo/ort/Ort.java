@@ -34,7 +34,7 @@ public class Ort {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column
 	@NotBlank
@@ -60,7 +60,7 @@ public class Ort {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
