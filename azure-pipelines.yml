@@ -21,3 +21,5 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
+    jarFile: '$TrialDays.demo/gradle/wrapper/gradle-wrapper.jar'
+    scriptFile: '$TrialDays.demo/gradlew'
