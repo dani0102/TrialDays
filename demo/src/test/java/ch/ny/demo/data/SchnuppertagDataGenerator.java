@@ -1,4 +1,4 @@
-package ch.ny.data;
+package ch.ny.demo.data;
 
 import java.util.Date;
 import java.util.HashSet;

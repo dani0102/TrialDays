@@ -18,8 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.ny.data.DataGenerators;
-import ch.ny.data.DataHolder;
+import ch.ny.demo.data.DataGenerators;
+import ch.ny.demo.data.DataHolder;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = BerufsbildnerController.class, includeFilters = {
