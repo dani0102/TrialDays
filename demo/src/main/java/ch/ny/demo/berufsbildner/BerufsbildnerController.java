@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 //subcollection of controller
 //automatically has @Component @Responsebody
 @RestController
-@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/berufsbildner")
 public class BerufsbildnerController {
 

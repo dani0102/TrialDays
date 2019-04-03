@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ch.ny.demo.schnupperer.Schnupperer;
 import ch.ny.demo.schnupperer.SchnuppererRepository;
 
 @Service
@@ -42,7 +43,7 @@ public class SchnuppertagService implements SchnuppertagServiceable {
 		var schnuppertag = this.repository.findById(schnuppertagId).get();
 		
 		if(schnuppertag.getParticipants().size() < schnuppertag.getLimit()) {
-			schnuppertag.addParticipant(schnupperer);
+			schnuppertag.addParticipant((Schnupperer) schnupperer);
 			repository.save(schnuppertag);	
 		}
 	}
