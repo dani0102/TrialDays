@@ -1,10 +1,7 @@
-package ch.ny.demo.fachrichtung;
+package ch.ny.demo.authority;
 
-import javax.validation.constraints.NotBlank;
+public class AuthorityDTO {
 
-public class FachrichtungDTO {
-
-	@NotBlank
 	private String name;
 
 	public String getName() {

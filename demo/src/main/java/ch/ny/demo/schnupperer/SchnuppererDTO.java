@@ -3,6 +3,7 @@ package ch.ny.demo.schnupperer;
 import java.util.UUID;
 
 import ch.ny.demo.ort.Ort;
+import ch.ny.demo.role.RoleDTO;
 
 public class SchnuppererDTO {
 
@@ -17,6 +18,8 @@ public class SchnuppererDTO {
 	private String telephone;
 	
 	private Ort ort;
+	
+	private RoleDTO role;
 
 	public String getFirstName() {
 		return firstName;
@@ -65,5 +68,12 @@ public class SchnuppererDTO {
 	public void setUid(UUID uid) {
 		this.uid = uid;
 	}
-	
+
+	public RoleDTO getRole() {
+		return role;
+	}
+
+	public void setRole(RoleDTO role) {
+		this.role = role;
+	}
 }

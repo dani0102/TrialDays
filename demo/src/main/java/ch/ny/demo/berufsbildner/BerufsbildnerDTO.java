@@ -1,12 +1,17 @@
 package ch.ny.demo.berufsbildner;
 
-//abgespeckte verison von entität
+import ch.ny.demo.role.RoleDTO;
+
+//abgespeckte version von entität
 //ohne business logic, nur die daten die man braucht
 
 public class BerufsbildnerDTO {
 
 	private String firstName;
+	
 	private String lastName;
+	
+	private RoleDTO role;
 	
 	public BerufsbildnerDTO() { }
 	
@@ -29,6 +34,14 @@ public class BerufsbildnerDTO {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public RoleDTO getRole() {
+		return role;
+	}
+
+	public void setRole(RoleDTO role) {
+		this.role = role;
 	}
 		
 }
