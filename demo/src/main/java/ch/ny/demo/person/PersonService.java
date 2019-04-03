@@ -14,7 +14,7 @@ public class PersonService implements PersonServiceable{
 	 * @param repository
 	 */
 	@Autowired
-	PersonService(PersonRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public PersonService(PersonRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.repository = repository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
