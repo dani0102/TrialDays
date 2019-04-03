@@ -1,10 +1,13 @@
 package ch.ny.demo.person;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PersonService implements PersonServiceable{
 
 	private PersonRepository repository;
@@ -14,9 +17,13 @@ public class PersonService implements PersonServiceable{
 	 * @param repository
 	 */
 	@Autowired
-	public PersonService(PersonRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public PersonService(@Qualifier("personRepository") PersonRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.repository = repository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+	
+	public Person findById(Long id) {
+		return repository.findById(id).get();
 	}
 	
 	/**
