@@ -13,12 +13,12 @@ public class Berufsbildner extends Person {
 		super();
 	}
 
-	public Berufsbildner(long id, String firstName, String lastName) {
-		super(id, firstName, lastName);
+	public Berufsbildner(long id, String firstName, String lastName, String username, String password) {
+		super(id, firstName, lastName, username, password);
 	}
 
-	public Berufsbildner(String firstName, String lastName) {
-		super(firstName, lastName);
+	public Berufsbildner(String firstName, String lastName, String username, String password) {
+		super(firstName, lastName, username, password);
 	}
 
 }
