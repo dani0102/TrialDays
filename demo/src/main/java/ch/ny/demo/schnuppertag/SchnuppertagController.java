@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.ny.demo.schnupperer.Schnupperer;
 
 @RestController
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/schnuppertag")
 public class SchnuppertagController {
 
@@ -49,7 +51,7 @@ public class SchnuppertagController {
 	}
 	
 	// By posting the schnupperer_id to this endpoint
-	// you can add the shcnupperer to the participants array
+	// you can add the schnupperer to the participants array
 	@PostMapping("/{schnuppertagId}")
 	public ResponseEntity<?> assignSchnuppererToSchnuppertag(@PathVariable long schnuppertagId, @RequestBody Schnupperer schnupperer){
 		this.service.addSchnupperer(schnupperer.getId(), schnuppertagId);
