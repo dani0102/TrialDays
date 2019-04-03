@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import ch.ny.demo.person.PersonRepository;
 
-@Repository
+@Repository()
 public interface SchnuppererRepository extends PersonRepository {
 
 //	Schnupperer findByUsername(String username);

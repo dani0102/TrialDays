@@ -21,8 +21,8 @@ public class SchnuppererService extends PersonService implements SchnuppererServ
 	private SchnuppererRepository repository;
 	
 	@Autowired
-	public SchnuppererService(PersonRepository personRepo, BCryptPasswordEncoder bCryptPasswordEncoder, SchnuppererRepository repository) {
-		super(personRepo, bCryptPasswordEncoder);
+	public SchnuppererService(BCryptPasswordEncoder bCryptPasswordEncoder, SchnuppererRepository repository) {
+		super(repository, bCryptPasswordEncoder);
 		this.repository = repository;
 	}
 	
