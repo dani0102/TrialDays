@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import ch.ny.demo.berufsbildner.Berufsbildner;
 import ch.ny.demo.person.Person;
 import ch.ny.demo.person.PersonRepository;
 import ch.ny.demo.person.PersonService;
@@ -27,12 +28,14 @@ public class SchnuppererService extends PersonService implements SchnuppererServ
 	
 	@Override
 	public Optional<Schnupperer> getById(Long id) {
-		return this.repository.findById(id);
+		var result = (Schnupperer)this.repository.findById(id).get();
+		return Optional.of(result);
 	}
 
 	@Override
 	public List<Schnupperer> getAll() {
-		return repository.findAll();
+		var result = (Schnupperer)this.repository.findAll();
+		return List.of(result);
 	}
 
 	@Override

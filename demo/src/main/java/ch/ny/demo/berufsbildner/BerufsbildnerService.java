@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import ch.ny.demo.person.PersonRepository;
 import ch.ny.demo.person.PersonService;
 
 //business logic
@@ -17,21 +16,23 @@ public class BerufsbildnerService extends PersonService implements Berufsbildner
 
 	private BerufsbildnerRepository repository;
 	
-	//automatisch die Objekte die man braucht instanzieren -> sorgt für dependency injection
+	//automatisch die Objekte die man braucht instanzieren -> sorgt fï¿½r dependency injection
 	@Autowired
-	public BerufsbildnerService(PersonRepository personRepo, BCryptPasswordEncoder bCryptPasswordEncoder, BerufsbildnerRepository repository) {
-		super(personRepo, bCryptPasswordEncoder);
+	public BerufsbildnerService(BCryptPasswordEncoder bCryptPasswordEncoder, BerufsbildnerRepository repository) {
+		super(repository, bCryptPasswordEncoder);
 		this.repository = repository;
 	}
 	
 	@Override
 	public Optional<Berufsbildner> getById(Long id) {
-		return this.repository.findById(id);
+		var result = (Berufsbildner)this.repository.findById(id).get();
+		return Optional.of(result);
 	}
 
 	@Override
 	public List<Berufsbildner> getAll() {
-		return repository.findAll();
+		var result = (Berufsbildner)this.repository.findAll();
+		return List.of(result);
 	}
 
 	@Override

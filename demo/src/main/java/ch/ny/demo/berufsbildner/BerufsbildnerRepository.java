@@ -1,17 +1,16 @@
 package ch.ny.demo.berufsbildner;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import ch.ny.demo.schnupperer.Schnupperer;
+import ch.ny.demo.person.PersonRepository;
 
 //@JpaRepository data access object
 
 @Repository
-public interface BerufsbildnerRepository extends JpaRepository<Berufsbildner, Long> {
+public interface BerufsbildnerRepository extends PersonRepository {
 	
-	Berufsbildner findByUsername(String username);
-	
-	void deleteByUsername(String username);
+//	Berufsbildner findByUsername(String username);
+//	
+//	void deleteByUsername(String username);
 	
 }
