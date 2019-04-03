@@ -20,15 +20,15 @@ public class Schnupperer extends Person {
 		super();
 	}
 
-	public Schnupperer(long id, String firstName, String lastName, String email, String telephone, Ort ort) {
-		super(id, firstName, lastName);
+	public Schnupperer(long id, String firstName, String lastName, String email, String telephone, Ort ort, String username, String password) {
+		super(id, firstName, lastName, username, password);
 		this.email = email;
 		this.telephone = telephone;
 		this.ort = ort;
 	}
 
-	public Schnupperer(String firstName, String lastName, String email, String telephone, Ort ort) {
-		super(firstName, lastName);
+	public Schnupperer(String firstName, String lastName, String email, String telephone, Ort ort, String username, String password) {
+		super(firstName, lastName, username, password);
 		this.email = email;
 		this.telephone = telephone;
 		this.ort = ort;

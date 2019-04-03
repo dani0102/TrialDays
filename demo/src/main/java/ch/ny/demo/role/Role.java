@@ -59,4 +59,12 @@ public class Role {
 		this.name = name;
 	}
 
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
 }

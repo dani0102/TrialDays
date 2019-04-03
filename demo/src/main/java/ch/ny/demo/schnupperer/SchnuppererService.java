@@ -5,10 +5,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import ch.ny.demo.person.Person;
+
 @Service
-public class SchnuppererService implements SchnuppererServiceable{
+public class SchnuppererService extends PersonServiceable implements SchnuppererServiceable{
 
 	private SchnuppererRepository repository;
 	
