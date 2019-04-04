@@ -26,7 +26,7 @@ import ch.ny.demo.person.UserDetailsImpl;
 
 public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFilter{
 
-private Properties properties;
+	private Properties properties;
 	
 	/**
 	 * @param requiresAuthenticationRequestMatcher
@@ -51,7 +51,7 @@ private Properties properties;
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
 			throws AuthenticationException, IOException, ServletException {
-		// read creds from header
+		// read creds from body
 		Person creds = new ObjectMapper().readValue(req.getInputStream(), Person.class);
 		
 		// return authentication with read creds
@@ -79,6 +79,7 @@ private Properties properties;
 		String subject = Long.toString(user.getId());
 
 		// Builds the JWT
+		System.out.println(properties.getProperty("jwt.secret"));
 		String token = Jwts.builder().setSubject(subject)
 				.setExpiration(
 						new Date(Integer.parseInt(properties.getProperty("jwt.expiration-time")) + System.currentTimeMillis()))

@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,6 +22,7 @@ import ch.ny.demo.person.PersonService;
  * @author Yves Kaufmann
  */
 @EnableWebSecurity
+@PropertySource("classpath:application.properties")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	// field injection because this class doesn't need to be tested
